@@ -13,14 +13,20 @@ code {
 }
 
 /* ESTILOS PARA DEMOSTRACIONES */
+
 nav > ul > li {
 	list-style: none;
 }
 nav > ul > li > a {
+	border-left: 3px solid green;
+	font-weight: bold;
 	text-decoration: underline;
 	color: black;
 }
+nav > ul > li > a:hover {
+	color: green;
+}
 
 .active {
-	background-color: rgb(211, 211, 211);
+	color: green;
 }

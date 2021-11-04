@@ -71,6 +71,21 @@ const Observaciones = () => {
 										<code>exact</code>
 									</h5>
 								</li>
+								<li>
+									<h5>
+										Ahora el hook <code>useHistory</code> se
+										utiliza como <code>useNavigate</code>
+									</h5>
+								</li>
+								<li>
+									<h5 className="text-success">
+										Ver todos los cambios de la versión
+										v6.0.0 de{" "}
+										<a href="https://reactrouter.com/docs/en/v6/upgrading/v5#use-usenavigate-instead-of-usehistory">
+											react-router-dom
+										</a>
+									</h5>
+								</li>
 							</ul>
 						</div>
 					</div>

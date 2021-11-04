@@ -17,6 +17,8 @@ const Navbar = () => {
 						Contact
 					</NavLink>
 				</li>
+			</ul>
+			<ul className="d-flex justify-content-between">
 				<li>
 					<NavLink to="/profile/samdev" activeclass="active">
 						Profile Samdev
