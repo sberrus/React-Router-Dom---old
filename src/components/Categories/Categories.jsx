@@ -1,10 +1,10 @@
 import React from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useHistory } from "react-router-dom";
 
 const Categories = () => {
 	//Accedemos a la cadena de querys en la propiedad search de useLocation().
 	const { search } = useLocation();
-	const navigate = useNavigate();
+	const history = useHistory();
 
 	//Creamos una nueva instancia del objeto URLSearchParams(STRING_QUERY) enviandole el string query como argumento.
 	const query = new URLSearchParams(search);
@@ -17,9 +17,9 @@ const Categories = () => {
 	const handleNext = () => {
 		console.log("next");
 		query.set("skip", parseInt(skip) + parseInt(limit));
-		//navigate es el objeto que nos permite navegar dentro de react.
+		//history es el objeto que nos permite navegar dentro de react.
 		//query.toString() es una función que nos devuelve la query completa de manera sencilla.
-		navigate({ search: query.toString() });
+		history.push({ search: query.toString() });
 	};
 
 	return (
