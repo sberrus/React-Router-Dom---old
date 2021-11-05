@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
+import LogButton from "../../Protected/_Partials/LogButton";
 const Navbar = () => {
 	return (
 		<nav>
@@ -43,6 +44,7 @@ const Navbar = () => {
 				</li>
 			</ul>
 			<h5>Rutas protegidas</h5>
+			<LogButton />
 			<ul className="d-flex justify-content-between">
 				<li>
 					<NavLink to="/login" activeclass="active">
