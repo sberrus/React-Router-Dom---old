@@ -1,7 +1,10 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
+import UseAuth from "../../Protected/Auth/UseAuth";
 import LogButton from "../../Protected/_Partials/LogButton";
 const Navbar = () => {
+	const auth = UseAuth();
+
 	return (
 		<nav>
 			<h5>Rutas estáticas</h5>
@@ -36,36 +39,43 @@ const Navbar = () => {
 				</li>
 				<li>
 					<NavLink
-						to="/categories?skip=0&limit=10"
+						to="/registros?skip=0&limit=10"
 						activeclass="active"
 					>
-						Categories
+						Registros
 					</NavLink>
 				</li>
 			</ul>
 			<h5>Rutas protegidas</h5>
 			<LogButton />
 			<ul className="d-flex justify-content-between">
-				<li>
-					<NavLink to="/login" activeclass="active">
-						Login
-					</NavLink>
-				</li>
-				<li>
-					<NavLink to="/register" activeclass="active">
-						Register
-					</NavLink>
-				</li>
-				<li>
-					<NavLink to="/dashboard" activeclass="active">
-						Dashboard
-					</NavLink>
-				</li>
-				<li>
-					<NavLink to="/payments" activeclass="active">
-						Payments
-					</NavLink>
-				</li>
+				{!auth.isLogged() ? (
+					<>
+						<li>
+							<NavLink to="/login" activeclass="active">
+								Login
+							</NavLink>
+						</li>
+						<li>
+							<NavLink to="/register" activeclass="active">
+								Register
+							</NavLink>
+						</li>
+					</>
+				) : (
+					<>
+						<li>
+							<NavLink to="/dashboard" activeclass="active">
+								Dashboard
+							</NavLink>
+						</li>
+						<li>
+							<NavLink to="/payments" activeclass="active">
+								Payments
+							</NavLink>
+						</li>
+					</>
+				)}
 			</ul>
 		</nav>
 	);

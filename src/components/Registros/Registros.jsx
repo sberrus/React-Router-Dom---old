@@ -1,7 +1,7 @@
 import React from "react";
 import { useLocation, useHistory } from "react-router-dom";
 
-const Categories = () => {
+const Registros = () => {
 	//Accedemos a la cadena de querys en la propiedad search de useLocation().
 	const { search } = useLocation();
 	const history = useHistory();
@@ -24,7 +24,7 @@ const Categories = () => {
 
 	return (
 		<div>
-			<h2>Categories</h2>
+			<h2>Registros</h2>
 			<p>skip: {skip}</p>
 			<p>limit: {limit}</p>
 
@@ -34,4 +34,4 @@ const Categories = () => {
 	);
 };
 
-export default Categories;
+export default Registros;

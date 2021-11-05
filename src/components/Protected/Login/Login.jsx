@@ -1,6 +1,3 @@
-import React from "react";
-import UseAuth from "../Auth/UseAuth";
-
 const Login = () => {
 	return (
 		<div>

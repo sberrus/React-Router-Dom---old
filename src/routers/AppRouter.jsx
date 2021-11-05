@@ -1,44 +1,68 @@
-import React from "react";
+//[Imports]
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import ErrorPageNotFound from "../components/404/ErrorPageNotFound";
+//[Rutas estáticas]
 import About from "../components/About/About";
-import Categories from "../components/Categories/Categories";
 import Contact from "../components/Contact/Contact";
-import Home from "../components/Home/Home";
 import Observaciones from "../components/Observaciones/Observaciones";
+//[Rutas Estáticas] especiales
+import Home from "../components/Home/Home";
+import ErrorPageNotFound from "../components/404/ErrorPageNotFound";
+
+//[Rutas con parámetros (url, query)]
 import ProfilePage from "../components/profile/ProfilePage";
+import Registros from "../components/Registros/Registros";
+
+//[Rutas Protegidas]
 import Dashboard from "../components/Protected/Dashboard/Dashboard";
 import Login from "../components/Protected/Login/Login";
 import Payments from "../components/Protected/Payments/Payments";
 import Register from "../components/Protected/Register/Register";
-import Navbar from "../components/_partials/Header/Navbar";
+//HOC de las [Rutas Protegidas]
+import PublicRoute from "./PublicRoute";
 import PrivateRoute from "./PrivateRoute";
 
+//Rutas Anidadas
+// import Categories from "../components/Categories/Categories";
+
+//_Partials
+import Navbar from "../components/_partials/Header/Navbar";
+import Footer from "../components/_partials/Header/Footer";
 const AppRouter = () => {
 	return (
 		<Router>
 			<Navbar />
 			<Switch>
-				<Route path="/contact" component={Contact} />
-				<Route path="/about" component={About} />
-				<Route path="/" exact component={Home} />
+				<Route exact path="/contact" component={Contact} />
+				<Route exact path="/about" component={About} />
 
 				{/* Ruta con URL params */}
-				<Route path="/profile/:username" component={ProfilePage} />
+				<Route
+					exact
+					path="/profile/:username"
+					component={ProfilePage}
+				/>
 				{/* Ruta con Query params */}
-				<Route path="/categories" component={Categories} />
+				<Route exact path="/registros" component={Registros} />
 
 				{/* Rutas Protegidas */}
 
-				<Route path="/login" component={Login} />
-				<Route path="/register" component={Register} />
-				<PrivateRoute path="/payments" component={Payments} />
+				<PublicRoute exact path="/login" component={Login} />
+				<PublicRoute exact path="/register" component={Register} />
+				<PrivateRoute exact path="/payments" component={Payments} />
 				<PrivateRoute exact path="/dashboard" component={Dashboard} />
 
+				{/* Rutas Anidadas */}
+
 				{/* Manejo de Error 404 para rutas no especificadas */}
-				<Route path="*" component={ErrorPageNotFound} />
+				<Route exact path="*" component={ErrorPageNotFound} />
+				{/* Ruta raiz */}
+				<Route exact path="/" component={Home} />
 			</Switch>
+			<hr />
+			<hr />
+			<hr />
 			<Observaciones />
+			<Footer />
 		</Router>
 	);
 };

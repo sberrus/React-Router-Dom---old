@@ -3,7 +3,6 @@ import React from "react";
 const Observaciones = () => {
 	return (
 		<div className="mt-5">
-			<hr />
 			<div className="accordion" id="accordionObservaciones">
 				<div className="accordion-item">
 					<h2 className="accordion-header" id="headingOne">
