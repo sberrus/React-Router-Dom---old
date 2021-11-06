@@ -14,10 +14,10 @@ code {
 
 /* ESTILOS PARA DEMOSTRACIONES */
 
-nav > ul > li {
+nav > div > ul > li {
 	list-style: none;
 }
-nav > ul > li > a {
+nav > div > ul > li > a {
 	font-weight: bold;
 	text-decoration: underline;
 	color: black;
@@ -28,4 +28,14 @@ nav > ul > li > a:hover {
 
 .active {
 	color: green;
+}
+
+.navbar-title {
+	padding-left: 5px;
+	border-left: 5px solid green;
+}
+
+.routes-container {
+	margin-bottom: 3em;
+	border-bottom: 1px solid green;
 }

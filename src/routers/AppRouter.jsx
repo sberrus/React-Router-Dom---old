@@ -21,12 +21,10 @@ import Register from "../components/Protected/Register/Register";
 import PublicRoute from "./PublicRoute";
 import PrivateRoute from "./PrivateRoute";
 
-//Rutas Anidadas
-// import Categories from "../components/Categories/Categories";
-
 //_Partials
 import Navbar from "../components/_partials/Header/Navbar";
-import Footer from "../components/_partials/Header/Footer";
+import Footer from "../components/_partials/Footer/Footer";
+import CategoriesRouter from "./CategoriesRouter";
 const AppRouter = () => {
 	return (
 		<Router>
@@ -45,22 +43,19 @@ const AppRouter = () => {
 				<Route exact path="/registros" component={Registros} />
 
 				{/* Rutas Protegidas */}
-
 				<PublicRoute exact path="/login" component={Login} />
 				<PublicRoute exact path="/register" component={Register} />
 				<PrivateRoute exact path="/payments" component={Payments} />
 				<PrivateRoute exact path="/dashboard" component={Dashboard} />
 
 				{/* Rutas Anidadas */}
+				<Route path="/categories" component={CategoriesRouter} />
 
 				{/* Manejo de Error 404 para rutas no especificadas */}
 				<Route exact path="*" component={ErrorPageNotFound} />
 				{/* Ruta raiz */}
 				<Route exact path="/" component={Home} />
 			</Switch>
-			<hr />
-			<hr />
-			<hr />
 			<Observaciones />
 			<Footer />
 		</Router>
